@@ -338,10 +338,10 @@ Las líneas con `#####` nunca se ejecutaron — no están cubiertas por los test
 
 **P10** — ¿Hay alguna línea de `carrito.c` con `#####`? ¿Cuál y por qué no se ejecutó?
 
-> R:
+> R: Sí. Las líneas 29 y 30 (`carrito_descuento`) tienen `#####`. No se ejecutaron porque los tests unitarios no llaman a esa función. Los de integración sí la prueban, pero `make cobertura` sólo corre los unitarios.
 
 ```
-COBERTURA_COMPLETA=
+COBERTURA_COMPLETA=NO
 ```
 _(SI si todas las líneas están cubiertas, NO si hay alguna con #####)_
 
@@ -351,27 +351,27 @@ _(SI si todas las líneas están cubiertas, NO si hay alguna con #####)_
 
 **P11** — ¿Qué diferencia hay entre un test unitario y uno de integración? ¿Cuál de los dos detectó primero el bug de `carrito_total`?
 
-> R:
+> R: Un test unitario prueba una función sola. Un test de integración prueba varias funciones juntas. El bug de `carrito_total` lo detectó primero el test unitario `test_total_con_cantidad`.
 
 **P12** — El bug de capacidad en `carrito_agregar` causa un **buffer overflow**: se escribe más allá del array. ¿Por qué esto es peligroso en C pero no ocurriría en un lenguaje como Python o Java?
 
-> R:
+> R: En C el arreglo no revisa sus límites: escribir en `items[4]` pisa otra memoria y el programa puede romperse. Python o Java revisan el índice y lanzan un error en vez de corromper la memoria.
 
 **P13** — En este laboratorio encontraste los bugs escribiendo tests. ¿Qué tiene de mejor este enfoque frente a mirar el código directamente?
 
-> R:
+> R: Los tests dejan escrito qué debe hacer el código. Permiten encontrar bugs sin leer todo el código y después sirven para detectar si un cambio rompe algo más adelante.
 
 **P14** — El test `test_total_precio_unitario` (cantidad = 1) **pasó** a pesar del bug, mientras que `test_total_con_cantidad` (cantidad = 2) **falló**. ¿Por qué el primer test no detectó el bug?
 
-> R:
+> R: Porque con cantidad 1 el bug no cambia el resultado: 350 x 1 = 350. El bug sólo aparece cuando la cantidad es distinta de 1.
 
 ```
-BUG_EN_FUNCION_1=
+BUG_EN_FUNCION_1=carrito_total
 ```
 _(nombre de la función con el primer bug)_
 
 ```
-BUG_EN_FUNCION_2=
+BUG_EN_FUNCION_2=carrito_agregar
 ```
 _(nombre de la función con el segundo bug)_
 
