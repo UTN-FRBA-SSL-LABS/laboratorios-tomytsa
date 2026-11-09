@@ -467,7 +467,7 @@ Antes de implementar, discutí con tu equipo:
 
 **P6** — Conclusión de la discusión:
 
-> R:
+> R: ToInteger va en `Conversion`. Convierte un `String` en un `Integer`, o sea cruza de un tipo a otro, y no es una operación propia del tipo `String`.
 
 ---
 
@@ -494,7 +494,7 @@ int ToInteger(const char *s) {
 
 **P7** — El loop acumula correctamente el valor en `resultado`. ¿Qué está mal en el `return`?
 
-> R:
+> R: Devolvía sólo el signo (1 o -1) y no el número. Tiene que devolver `signo * resultado`.
 
 #### Corrección
 
@@ -506,10 +506,10 @@ make test
 
 **P8** — La expresión `*s - '0'` convierte un carácter dígito al entero correspondiente. ¿Por qué funciona? ¿Qué devuelve `'3' - '0'`?
 
-> R:
+> R: Los dígitos `'0'` a `'9'` tienen códigos ASCII seguidos, así que restar `'0'` da el valor numérico. `'3' - '0'` da 3.
 
 ```
-TOINTEGER_PASA=
+TOINTEGER_PASA=SI
 ```
 _(escribí SI cuando todos los tests de ToInteger pasen)_
 
