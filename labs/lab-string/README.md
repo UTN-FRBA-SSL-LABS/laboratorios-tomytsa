@@ -328,14 +328,14 @@ make test
 
 **P2** — ¿Qué hace `s + 1`? ¿Por qué avanza al siguiente carácter y no al siguiente byte?
 
-> R:
+> R: Mueve el puntero al siguiente carácter. Como es un `char *` y cada `char` ocupa 1 byte, avanzar 1 es avanzar un carácter.
 
 **P3** — Si llamaras a `GetLength(NULL)`, ¿qué pasaría? ¿Por qué las precondiciones del contrato dicen `s != NULL`?
 
-> R:
+> R: Se rompe, porque `IsEmpty` lee `*s` y `NULL` no apunta a ningún dato. Por eso el contrato pide `s != NULL`.
 
 ```
-GETLENGTH_PASA=
+GETLENGTH_PASA=SI
 ```
 _(escribí SI cuando todos los tests de GetLength pasen)_
 
