@@ -38,9 +38,12 @@ int main(void) {
     assert(AreDecimalDigits("") == 0);
 
     /* ── Contains — descomentar cuando implementes la funcion ───────────── */
-    /* assert(Contains("hola", 'o') == 1); */
-    /* assert(Contains("hola", 'z') == 0); */
-    /* assert(Contains("", 'a') == 0); */
+    assert(Contains("hola", 'o') == 1);
+    assert(Contains("hola", 'z') == 0);
+    assert(Contains("", 'a') == 0);
+    assert(Contains("hola", 'h') == 1);   /* primer caracter */
+    assert(Contains("hola", 'a') == 1);   /* ultimo caracter */
+    assert(Contains("aaa", 'a') == 1);    /* repetido */
 
     return 0;
 }

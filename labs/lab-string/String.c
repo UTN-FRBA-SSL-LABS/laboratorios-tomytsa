@@ -38,7 +38,7 @@ int AreEqual(const char *s1, const char *s2) {
 /* ── AreDecimalDigits — tiene un bug, encontrarlo y corregirlo ───────────── */
 
 int AreDecimalDigits(const char *s) {
-    if (IsEmpty(s)) return 0;
+    if (IsEmpty(s)) return 0;  /* la cadena vacia no es un conjunto valido de digitos */
     for (const char *p = s; !IsEmpty(p); p++)
         if (*p < '0' || *p > '9')
             return 0;
@@ -48,6 +48,9 @@ int AreDecimalDigits(const char *s) {
 /* ── Contains — implementar completo ────────────────────────────────────── */
 
 int Contains(const char *s, char c) {
-    (void)s; (void)c;
-    return 0;  /* reemplazar con la implementacion */
+    if (IsEmpty(s))
+        return 0;
+    if (*s == c)
+        return 1;
+    return Contains(s + 1, c);
 }
