@@ -17,6 +17,9 @@ int ToInteger(const char *s) {
     return signo * resultado;
 }
 
-/* ── Operacion libre ─────────────────────────────────────────────────────── */
+/* ── Operacion libre: ToAbsolute ─────────────────────────────────────────── */
 
-/* TODO */
+int ToAbsolute(const char *s) {
+    int valor = ToInteger(s);
+    return valor < 0 ? -valor : valor;
+}

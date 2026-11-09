@@ -16,7 +16,9 @@
  * Post: devuelve el valor entero correspondiente a la cadena */
 int ToInteger(const char *s);
 
-/* TODO: agregar una operacion a definir libremente.
- * Documentar Pre, Post y firma antes del prototipo. */
+/* ToAbsolute: String -> Integer
+ * Pre:  s != NULL, s representa un entero valido en base 10
+ * Post: devuelve el valor absoluto del entero representado por s */
+int ToAbsolute(const char *s);
 
 #endif

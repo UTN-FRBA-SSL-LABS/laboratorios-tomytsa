@@ -17,7 +17,11 @@ int main(void) {
     assert(ToInteger("-7") == -7);
     assert(ToInteger("100") == 100);
 
-    /* ── Operacion libre — agregar tests aca ────────────────────────────── */
+    /* ── Operacion libre: ToAbsolute ────────────────────────────────────── */
+    assert(ToAbsolute("0") == 0);
+    assert(ToAbsolute("7") == 7);
+    assert(ToAbsolute("-7") == 7);
+    assert(ToAbsolute("-100") == 100);
 
     return 0;
 }
